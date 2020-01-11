@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}Martin Rafael Cruz Cruz{% endblock title %}</title>
+	<!-- core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.transitions.css' %}" rel="stylesheet">
+    <link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="{% static 'images/ico/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'images/ico/apple-touch-icon-144-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'images/ico/apple-touch-icon-114-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'images/ico/apple-touch-icon-72-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'images/ico/apple-touch-icon-57-precomposed.png' %}">
+</head><!--/head-->
+
+<body id="home" class="homepage">
+
+
+    <header id="top-header" class="navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- responsive nav button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- /responsive nav button -->
+
+                    <!-- logo -->
+                    <div class="navbar-brand">
+                        <a class="smooth-scroll" data-section="#home" href="#home" >
+                            <img src="{% static 'images/logo.png' %}" width="50" height="50" alt="">
+                        </a>
+                    </div>
+                    <!-- /logo -->
+                </div>
+
+                <!-- main nav -->
+                <nav class="collapse navbar-collapse navbar-right" role="navigation">
+                    <div class="main-menu">
+                        <ul id="nav" class="nav navbar-nav">
+                            <li class="scroll"><a href="#Introduction" data-section="#Introduction">Introduction</a></li>
+                            <li class="scroll"><a href="#Education" data-section="#Education">Education</a></li>
+                            <li class="scroll"><a href="#Experience" data-section="#Experience">Experience</a></li>
+                            <li class="scroll"><a href="#Languages" data-section="#Languages">Languages</a></li>
+                            <li class="scroll"><a href="#Skills" data-section="#Skills">Skills</a></li>
+                            <li class="scroll"><a href="#SoftSkills" data-section="#SoftSkills">SoftSkills</a></li>
+                            <li class="scroll"><a href="#Contact" data-section="#Contact">Contact</a></li>
+                            <li class="scroll"><a href="#Generals" data-section="#Generals">Generals</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- /main nav -->
+
+            </div>
+        </header>
+
+    <section id="main-slider">
+            <div class="item" style="background-image: url({% static 'images/slider/bg1.jpg' %});">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="carousel-content text-center">
+                                    <h2>Martin Rafael Cruz Cruz Curriculum Vitae</h2>
+                                    {% for intro in intro %}
+                                    <p>{{ intro.about }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+    <section id="Introduction">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown"></h2>
+                <p class="text-center wow fadeInDown"></p>
+            </div>
+
+            <div class="row">
+
+               {% for intro in intro %}
+                <div class="col-sm-6 wow fadeInRight">
+                    <h3 class="column-title">{{ intro.about }}</h3>
+                    <p>{{ intro.intro }}</p>
+                </div>
+                {% endfor %}
+                <div class="col-sm-6 wow fadeInLeft">
+                    <p><img class="img-circle img-thumbnail" src="{% static 'images/photos/01.jpg' %}" width="300" height="200" alt=""></p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Education</h2>
+                <p class="text-center wow fadeInDown">About my education</p>
+            </div>
+            {% for education in education %}
+            <div class="row">
+                <div class="col-sm-6 wow fadeInLeft">
+                    <img class="img-responsive" src="{% static 'images/photos/02.png' %}" alt="">
+                </div>
+                <div class="col-sm-6">
+                    <div class="media service-box wow fadeInRight">
+                        <div class="media-body">
+                            <h4 class="media-heading">{{education.area}}</h4>
+                            <p>{{education.place}}</p>
+                            <p>{{education.degree}} Degree</p>
+                            <p>{{education.special}}</p>
+                            <p>From {{education.startdate}} to {{education.enddate}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="Experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Experience</h2>
+                <p class="text-center wow fadeInDown">My experience</p>
+            </div>
+{% for experience in experience %}
+            <div class="portfolio-item Business">
+                   <div class="portfolio-item-inner">
+                       <div class="portfolio-info">
+                         {% if experience.enddate %}
+                           <p><h3>{{ experience.job}}</h3>{{ experience.startdate}}-{{experience.enddate}}</p>
+                           {% else %}
+                           <p><h3>{{ experience.job}}</h3>{{ experience.startdate}}-Now</p>
+                           {% endif %}
+                           <h4>{{ experience.place}} - {{ experience.zone}}</h4>
+                           <p>{{ experience.resume}}</p>
+                           <h4>Accomplishments</h4>
+                           {% for accomplish in experience.accomplish.all %}
+                           <li>{{ accomplish.description}}</li>
+                           {% endfor %}
+                       </div>
+                   </div>
+               </div>
+               </br></br>
+{% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <section id="Languages">
+        <div class="container">
+            <div class="text-center">
+              <div class="section-header">
+                  <h2 class="section-title text-center wow fadeInDown">Languages</h2>
+                  <p class="text-center wow fadeInDown"></p>
+              </div>
+               <div class="container">
+                {% for language in language %}
+                <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">{{ language.name }}  <progress value="{{ language.percent}}" max="100">{{ language.percent}}</progress></p>
+                {% endfor %}
+              </div>
+            </div>
+
+        </div>
+    </section>
+
+    </section><!--/#services-->
+    <section id="Skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Skills</h2>
+                <p class="text-center wow fadeInDown">About my skills</p>
+            </div>
+            <div class="row">
+                {% for skill in skill %}
+                <div class="col-sm-6">
+                    <div class="media wow fadeInDown">
+                        <div class="media-body center">
+                            <h5 class="media-heading">{{skill.name}}</h5>
+                             <p><progress value="{{ skill.percent}}" max="100">{{ skill.percent}}</progress></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+      </section>
+
+      <section id="SoftSkills" >
+
+          <div class="container">
+
+              <div class="section-header">
+                  <h2 class="section-title text-center wow fadeInDown">SoftSkills</h2>
+                  <p class="text-center wow fadeInDown">My softskills</p>
+              </div>
+
+              <div class="row">
+                  <div class="features">
+                      <div class="col-sm-12 col-md-12 col-lg-12 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
+                        {% for softskill in softskill %}
+                          <div class="features-item text-center">
+                              <h5 class="features-title font-alt">{{softskill.name}}</h5>
+                          </div>
+                          {% endfor %}
+                      </div>
+                  </div>
+              </div><!--/.row-->
+
+          </div><!--/.container-->
+
+<section id="Contact">
+    <div class="container">
+  <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="section-header">
+            <h2 class="section-title text-center wow fadeInDown">Contact</h2>
+          </div>
+    {% for contact in contact %}
+    <div class="col-sm-12">
+        <p class="text-center"> Contact information </p>
+      </br>
+          <p><a href="#"><i class="fa fa-street-view"></i></a>  {{contact.address}}</p>
+            <p><a href="#"><i class="fa fa-envelope"></i></a>  {{contact.mail}}</p>
+            <p><a href="#"><i class="fa fa-phone-square"></i></a>  {{contact.phone}}</p>
+
+            {%if contact.linkedin%}
+            <p><a href="#"><i class="fa fa-linkedin"></i></a>  {{contact.linkedin}}</p>
+            {%endif%}
+
+            {%if contact.facebook%}
+          <p><a href="#"><i class="fa fa-facebook"></i></a>  {{contact.facebook}}</p>
+          {%endif%}
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+  </section>
+
+  <section id="Generals">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-8 col-sm-offset-2">
+
+              <div id="carousel-testimonial" class="carousel slide text-center" data-ride="carousel">
+                <div class="section-header">
+                  <h2 class="section-title text-center wow fadeInDown">Generals</h2>
+                 <p><img class="img-circle img-thumbnail" src="{% static 'images/photos/01.jpg' %}"  width="50" height="50" alt=""></p>
+               </div>
+                      <!-- Wrapper for slides -->
+                      {% for generalinfo in generalinfo %}
+                      <div class="carousel-inner" role="listbox">
+                          <div class="item active">
+                              <h4>Name</h4>
+                              <small>My name is</small>
+                              <p>{{generalinfo.name}}</p>
+                          </div>
+                          <div class="item">
+                              <h4>Birth Day</h4>
+                              <small>I was born in</small>
+                              <p>{{generalinfo.birth}}</p>
+                          </div>
+                          <div class="item">
+                              <h4>City</h4>
+                              <small>I was born in</small>
+                              <p>{{generalinfo.city}}</p>
+                          </div>
+                      </div>
+                      {%endfor%}
+                      <!-- Controls -->
+                      <div class="btns">
+                          <a class="btn btn-primary btn-sm" href="#carousel-testimonial" role="button" data-slide="prev">
+                              <span class="fa fa-angle-left" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="btn btn-primary btn-sm" href="#carousel-testimonial" role="button" data-slide="next">
+                              <span class="fa fa-angle-right" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="text-center"> Martin Rafael Cruz Cruz</p>
+                    <p class="text-center"> My resume</p>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/mousescroll.js' %}"></script>
+    <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <script src="{% static 'js/jquery.isotope.min.js' %}"></script>
+    <script src="{% static 'js/jquery.inview.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
